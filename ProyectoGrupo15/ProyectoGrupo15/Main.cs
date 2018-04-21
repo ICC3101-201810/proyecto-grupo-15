@@ -123,7 +123,7 @@ namespace ProyectoGrupo15
             usuario.AgregarPublicacion(perdido);
 
         }
-// gets
+// get usuarios por apodo
         public Alumno GetAlumno(String apodo)
         {
             foreach(Alumno alumno1 in alumnos)
@@ -252,6 +252,7 @@ namespace ProyectoGrupo15
             }
 
         }
+// ver publicaciones de objetos encontrados
         public void VerPublicacionesEncontradas()
         {
             if (encontradas.Count() == 0)
@@ -267,6 +268,7 @@ namespace ProyectoGrupo15
             }
 
         }
+// ver publicaciones de objetos perdidos
         public void VerPublicacionesPerdidas()
         {
             if(perdidos.Count() == 0)
@@ -282,6 +284,7 @@ namespace ProyectoGrupo15
             }
 
         }
+// ver publicaciones de objetos perdidos por categoria
         public void VerPublicacionesCategoriaP(String categoria)
         {
             if (perdidos.Count() == 0)
@@ -300,7 +303,7 @@ namespace ProyectoGrupo15
             }
 
         }
-
+// ver publicaciones de objetos encontrados por categoria
         public void VerPublicacionesCategoriaE(String categoria)
         {
             if (encontradas.Count() == 0)
@@ -320,6 +323,7 @@ namespace ProyectoGrupo15
             }
 
         }
+// mostrar informacion de un usuario creador de una publicacion
         public void mostrarInformacion(int id)
         {
             foreach(Encontrado pub in encontradas)
@@ -354,6 +358,7 @@ namespace ProyectoGrupo15
                 }
             }
         }
+//entrega el usuario a partir del apodo
         public Usuario EntregarUsuario(String apodo)
         {
             foreach (Alumno alumno in alumnos)
@@ -379,7 +384,7 @@ namespace ProyectoGrupo15
             }
             return null;
         }
-
+//eliminar publicacion por usuario
         public void EliminarPublicacionUsuario(Usuario usuario)
         {
             Console.WriteLine("Ingrese el id de la publicacion que quiere eliminar");
@@ -438,7 +443,7 @@ namespace ProyectoGrupo15
             }
 
         }
-// calificar
+// calificar a un usuario
         public void AgregarCalificacion(Usuario usuario)
         {
             Console.WriteLine("Ingrese la calificacion que le asignara al usuario (1-5): ");
@@ -468,6 +473,7 @@ namespace ProyectoGrupo15
                 Console.ForegroundColor = ConsoleColor.Black;
             }
         }
+//eliminar cualquier publicacion
         public void EliminarCualquierPublicacion()
         {
             Console.WriteLine("Ingrese el id de la publicacion que quiere eliminar");
@@ -609,6 +615,7 @@ namespace ProyectoGrupo15
                 Console.ForegroundColor = ConsoleColor.Black;
             }
         }
+//eliminar a un usuario
         public void eliminarUsuario()
         {
             Console.WriteLine("Ingrese apodo del usuario que desea eliminar: ");
@@ -683,7 +690,7 @@ namespace ProyectoGrupo15
             }
 
         }
-         
+// ver todos los usuarios         
         public void verUsuario()
         {
             if (alumnos.Count() > 0)

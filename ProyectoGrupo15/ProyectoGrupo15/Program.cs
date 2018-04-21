@@ -31,8 +31,12 @@ namespace ProyectoGrupo15
             main.guardarPersonal(personal2);
             Encontrado encontrado3 = new Encontrado("iphone4", "Encontre en el reloj un iphone4 con un fondo de pantalla con un perro", "Electronico",1, "mati");
             main.guardarEncontrado(encontrado3, alumno5);
+            Encontrado encontrado5 = new Encontrado("botella de agua", "Encontre una botella de agua en la sala B24, la deje en porteria del edificio de biblioteca", "Otros", 3, "palu");
+            main.guardarEncontrado(encontrado5, alumno6);
             Perdido perdido6 = new Perdido("cuaderno", "Se me perdio un cuaderno rosado, la ultima vez que lo vi fue en los ciruelos", "Utiles", 2, "carla23");
             main.guardarPerdido(perdido6, personal2);
+            Perdido perdido7 = new Perdido("chaleco verde", "Se me perdio un chaleco vere, lo deje en el cafe de biblioteca", "Ropa", 4, "carla23");
+            main.guardarPerdido(perdido7, personal2);
             List<String> categorias = new List<String>();
             categorias.Add("Electronica");
             categorias.Add("Ropa");
@@ -878,6 +882,7 @@ namespace ProyectoGrupo15
                                     Console.WriteLine("Ingrese una opcion: ");
                                     Console.ForegroundColor = ConsoleColor.Black;
                                     String opcion1 = Console.ReadLine();
+//ver publicaciones
                                     if (opcion1 == "1")
                                     {
                                         while (true)
@@ -1064,20 +1069,26 @@ namespace ProyectoGrupo15
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Tipo de usuario no existente");
+                        Console.ForegroundColor = ConsoleColor.Black;
                         continue;
                     }
                     
                 }
                 if (desicion == "3")
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Gracias por usar la aplicacion");
+                    Console.ForegroundColor = ConsoleColor.Black;
                     break;
                 }
 
                 else 
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Opcion no valida, intentelo nuevamente");
+                    Console.ForegroundColor = ConsoleColor.Black;
                     continue;
                 }
             }

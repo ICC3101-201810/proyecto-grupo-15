@@ -92,3 +92,6 @@ APP objetos perdidos180419
 Se ha ingresado a la aplicacion como administrador, Apodo: ejrios
 APP objetos perdidos180419
 Se ha ingresado a la aplicacion como administrador, Apodo: ejrios
+APP objetos perdidos180420
+Se ha ingresado a la aplicacion con el usuario, Apodo: mati
+Se ha ingresado a la aplicacion con el usuario, Apodo: carla23
