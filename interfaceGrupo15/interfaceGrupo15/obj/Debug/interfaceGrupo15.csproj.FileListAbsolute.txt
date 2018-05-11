@@ -1,0 +1,10 @@
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.exe.config
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.exe
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.pdb
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.csprojAssemblyReference.cache
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.Form1.resources
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.Properties.Resources.resources
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.csproj.GenerateResource.cache
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.csproj.CoreCompileInputs.cache
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.exe
+C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.pdb

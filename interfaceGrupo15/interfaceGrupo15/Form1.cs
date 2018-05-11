@@ -87,6 +87,7 @@ namespace interfaceGrupo15
 			textBox4.Clear();
 			textBox5.Clear();
 			textBox6.Clear();
+            label9.Text = "";
 			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel1.BringToFront();
 		}
@@ -96,7 +97,7 @@ namespace interfaceGrupo15
 			String apodo = textBox7.Text;
 			String contraseña = textBox8.Text;
 			String tipo = comboBox2.Text;
-			if (metodos.RevisarApodo(apodo))
+			if (metodos.RevisarApodo(apodo) == false)
 			{
 				if (metodos.EntregarUsuario(apodo) == null)
 				{
@@ -140,7 +141,10 @@ namespace interfaceGrupo15
 
 		private void button7_Click(object sender, EventArgs e)
 		{
-			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBox7.Clear();
+            textBox8.Clear();
+            label14.Text = "";
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel1.BringToFront();
 		}
 
@@ -149,7 +153,7 @@ namespace interfaceGrupo15
 			String apodo = textBox7.Text;
 			label17.Text = apodo;
 			Usuario usuario = metodos.EntregarUsuario(apodo);
-			label18.Text = usuario.CalcularPuntos().ToString();
+			label19.Text = usuario.CalcularPuntos().ToString();
 			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
@@ -167,7 +171,10 @@ namespace interfaceGrupo15
 
 		private void button12_Click(object sender, EventArgs e) //salir de un perfil
 		{
-			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBox7.Clear();
+            textBox8.Clear();
+            label14.Text = "";
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel1.BringToFront();
 		}
 
@@ -179,8 +186,16 @@ namespace interfaceGrupo15
 
 		private void button11_Click(object sender, EventArgs e) //ver notificaciones en perfil
 		{
-
-		}
+            String apodo = textBox7.Text;
+            Usuario usuario = metodos.EntregarUsuario(apodo);
+            foreach (List<String> p in usuario.GetListaNotificaciones())
+            {
+                listView1.Columns.Add("File type", 20, HorizontalAlignment.Left);
+                //listView1.Items.AddRange(new ListViewItem[] { p[1], p[2], p[0] });
+            }
+            panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel13.BringToFront();
+        }
 
 		private void button13_Click(object sender, EventArgs e) //enviar notificacion a un usuario en perfil
 		{
@@ -221,8 +236,11 @@ namespace interfaceGrupo15
 
 		private void button18_Click(object sender, EventArgs e)
 		{
-			panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel4.BringToFront();
+            textBox9.Clear();
+            textBox10.Clear();
+            label25.Text = "";
+            panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel5.BringToFront();
 		}
 
 		private void button21_Click(object sender, EventArgs e) // enviar notificacion
@@ -231,7 +249,7 @@ namespace interfaceGrupo15
 			Usuario usuarioManda = metodos.EntregarUsuario(apodoquiennotifica);
 			String apodonotificado = textBox11.Text;
 			String notificacion = textBox12.Text;
-			if (metodos.RevisarApodo(apodonotificado) == false)
+			if (metodos.RevisarApodo(apodonotificado))
 			{
 				label29.Text = "Apodo mal ingresado o no existe";
 			}
@@ -251,7 +269,10 @@ namespace interfaceGrupo15
 
 		private void button20_Click(object sender, EventArgs e)
 		{
-			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBox11.Clear();
+            textBox12.Clear();
+            label29.Text = "";
+            panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
 
@@ -259,7 +280,7 @@ namespace interfaceGrupo15
 		{
 			String apodonotificado = textBox13.Text;
 			String calificacion = comboBox5.Text;
-			if (metodos.RevisarApodo(apodonotificado))
+			if (metodos.RevisarApodo(apodonotificado) == false)
 			{
 				Usuario usuariocalificar = metodos.EntregarUsuario(apodonotificado);
 				if (metodos.AgregarCalificacion(usuariocalificar, calificacion))
@@ -280,7 +301,9 @@ namespace interfaceGrupo15
 
 		private void button23_Click(object sender, EventArgs e)
 		{
-			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBox13.Clear();
+            label33.Text = "";
+            panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
 
@@ -303,10 +326,88 @@ namespace interfaceGrupo15
 
 		private void button25_Click(object sender, EventArgs e)
 		{
-			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            textBox14.Clear();
+            label36.Text = "";
+            panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
 
-		
-	}
+        private void button30_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.BringToFront();
+        }
+
+        private void button27_Click(object sender, EventArgs e) //eliminar publicacion administrador
+        {
+            panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel11.BringToFront();
+        }
+
+        private void button26_Click(object sender, EventArgs e) // ver publicaciones administrador
+        {
+
+        }
+
+        private void button28_Click(object sender, EventArgs e) //eliminr usuario administrador
+        {
+            panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel12.BringToFront();
+        }
+
+        private void button29_Click(object sender, EventArgs e) // ver usuarios administrador 
+        {
+
+        }
+
+        private void button31_Click(object sender, EventArgs e) //eliminado public
+        {
+            String id_public = textBox15.Text;
+            if (metodos.EliminarCualquierPublicacion(id_public))
+            {
+                label40.Text = "publicacion eliminada con exito";
+            }
+            else
+            {
+                label40.Text = "ID de publicacion mal ingresado o no existe";
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            textBox15.Clear();
+            label40.Text = "";
+            panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel10.BringToFront();
+
+        }
+
+        private void button33_Click(object sender, EventArgs e) //elimino usuario
+        {
+            String apodoborrar = textBox16.Text;
+            if (metodos.eliminarUsuario(apodoborrar))
+            {
+                label43.Text = "Usuario eliminado con exito";
+            }
+            else
+            {
+                label43.Text = "se ha ingresado mal el apodo del usuario o este no existe";
+            }
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            textBox16.Clear();
+            label43.Text = "";
+            panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel10.BringToFront();
+
+        }
+    }
 }

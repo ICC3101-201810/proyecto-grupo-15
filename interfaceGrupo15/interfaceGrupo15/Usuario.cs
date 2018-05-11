@@ -159,5 +159,10 @@ namespace interfaceGrupo15
 			puntos.Add(calificacion);
 		}
 
+        public List<List<String>> GetListaNotificaciones()
+        {
+            return notificaciones;
+        }
+
 	}
 }
