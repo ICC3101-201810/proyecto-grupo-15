@@ -17,13 +17,7 @@ namespace interfaceGrupo15
 			apodo = miapodo;
 			id = miId;
 		}
-		//REVISAR
-		public virtual void MostrarPublicacion()
-		{
-			Console.WriteLine("ID: " + id);
-			Console.WriteLine("Encabezado: " + encabezado);
-			Console.WriteLine("Cometario: " + comentario);
-		}
+		
 		public int GetId()
 		{
 			return id;

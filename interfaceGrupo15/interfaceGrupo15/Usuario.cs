@@ -36,6 +36,14 @@ namespace interfaceGrupo15
 		{
 			return clave;
 		}
+		public String Getnombre()
+		{
+			return nombre;
+		}
+		public String Gettelefono()
+		{
+			return telefono;
+		}
 
 		public int CalcularPuntos()
 		{
@@ -60,32 +68,8 @@ namespace interfaceGrupo15
 		{
 			publicaciones.Add(publicacion1);
 		}
-		public virtual bool VerMisPublicaciones()
-		{
-			if (publicaciones.Count() == 0)
-			{
-				return false; //No tiene publicaciones
-			}
-			else
-			{
-				foreach (Publicacion publicacion in publicaciones)
-				{
-					publicacion.MostrarPublicacion();
-				}
-				return true;
-			}
-
-		}
-		//REVISAR
-		public void MostrarContacto()
-		{
-			Console.WriteLine("Nombre: " + nombre);
-			Console.WriteLine("Apodo: " + apodo);
-			Console.WriteLine("Mail: " + mail);
-			Console.WriteLine("Telefono: " + telefono);
-			Console.WriteLine("Calificacion: " + CalcularPuntos());
-
-		}
+		
+		
 		public String AgregarNotificacion(Usuario usuario, String notificacion)
 		{
 			List<String> usuarioquelacrea = new List<string>();
@@ -95,25 +79,7 @@ namespace interfaceGrupo15
 			usuario.notificaciones.Add(usuarioquelacrea);
 			return "bien"; //Notificacion creada con exito
 		}
-		//REVISAR
-		public bool verNotificaciones()
-		{
-			if (notificaciones.Count() == 0)
-			{
-				return false;//No tiene notificaciones
-			}
-			else
-			{
-				foreach (List<string> notificacion1 in notificaciones)
-				{
-					Console.WriteLine("Remitente: " + notificacion1[1]);
-					Console.WriteLine("Mail remitente: " + notificacion1[2]);
-					Console.WriteLine("Mensaje: " + notificacion1[0]);
-				}
-				return true;
-			}
-
-		}
+		
 
 		public bool EliminarNotificaciones()
 		{

@@ -97,7 +97,13 @@ namespace interfaceGrupo15
 			String apodo = textBox7.Text;
 			String contraseña = textBox8.Text;
 			String tipo = comboBox2.Text;
-			if (metodos.RevisarApodo(apodo) == false)
+			if ((apodo == null) | (contraseña == null))
+			{
+				String var = "Apodo o Contraseña sin texto";
+				label14.Text = var;
+				label14.Text = var;
+			}
+			else if (metodos.RevisarApodo(apodo) == false)
 			{
 				if (metodos.EntregarUsuario(apodo) == null)
 				{
@@ -166,7 +172,8 @@ namespace interfaceGrupo15
 
 		private void button10_Click(object sender, EventArgs e) //ver Publicaciones
 		{
-			
+			panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel15.BringToFront();
 		}
 
 		private void button12_Click(object sender, EventArgs e) //salir de un perfil
@@ -213,6 +220,12 @@ namespace interfaceGrupo15
 
 		private void button16_Click(object sender, EventArgs e) //eliminar una publicacion en perfil
 		{
+			String apodo = textBox7.Text;
+			Usuario usuario = metodos.EntregarUsuario(apodo);
+			foreach (Publicacion p in usuario.GetListaPublicaciones())
+			{
+				this.comboBox10.Items.Add(p.GetEncabezado());
+			}
 			panel9.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel9.BringToFront();
 		}
@@ -306,9 +319,22 @@ namespace interfaceGrupo15
 
 		private void button24_Click(object sender, EventArgs e) //eliminando publicacion
 		{
-			String id_public = textBox14.Text;
+			String id_public = null;
+			String encabezado = comboBox10.Text;
 			String apodo = textBox7.Text;
 			Usuario usuarioingresado = metodos.EntregarUsuario(apodo);
+			foreach (Publicacion p in usuarioingresado.GetListaPublicaciones())
+			{
+				if (p.GetEncabezado() == encabezado)
+				{
+					id_public = p.GetId().ToString();
+					break;
+				}
+				else
+				{
+					id_public = null;
+				}
+			}
 			if (metodos.EliminarPublicacionUsuario(usuarioingresado, id_public))
 			{
 				label36.Text = "publicacion eliminada con exito";
@@ -323,7 +349,6 @@ namespace interfaceGrupo15
 
 		private void button25_Click(object sender, EventArgs e)
 		{
-            textBox14.Clear();
             label36.Text = "";
             panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
@@ -349,8 +374,9 @@ namespace interfaceGrupo15
 
         private void button26_Click(object sender, EventArgs e) // ver publicaciones administrador
         {
-
-        }
+			panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel15.BringToFront();
+		}
 
         private void button28_Click(object sender, EventArgs e) //eliminr usuario administrador
         {
@@ -360,8 +386,27 @@ namespace interfaceGrupo15
 
         private void button29_Click(object sender, EventArgs e) // ver usuarios administrador 
         {
-
-        }
+			panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel16.BringToFront();
+			foreach (Alumno a in metodos.GetListaAlumnos())
+			{
+				listBox3.Items.Add("Usuario: " + a.Getapodo());
+				listBox3.Items.Add("Nombre: " + a.Getnombre());
+				listBox3.Items.Add("Mail: " + a.Getmail());
+				listBox3.Items.Add("Telefono: " + a.Gettelefono());
+				listBox3.Items.Add("Calificacion: " + a.CalcularPuntos());
+				listBox3.Items.Add("------------------------------------------");
+			}
+			foreach (Personal p in metodos.GetListaPersonal())
+			{
+				listBox3.Items.Add("Usuario: " + p.Getapodo());
+				listBox3.Items.Add("Nombre: " + p.Getnombre());
+				listBox3.Items.Add("Mail: " + p.Getmail());
+				listBox3.Items.Add("Telefono: " + p.Gettelefono());
+				listBox3.Items.Add("Calificacion: " + p.CalcularPuntos());
+				listBox3.Items.Add("------------------------------------------");
+			}
+		}
 
         private void button31_Click(object sender, EventArgs e) //eliminado public
         {
@@ -413,12 +458,14 @@ namespace interfaceGrupo15
 			String apodousuario = textBox7.Text;
 			String apodo = comboBox6.Text;
 			Usuario usuario = metodos.EntregarUsuario(apodousuario);
-			List<String> notif = new List<string>();
+			Usuario usuario1 = metodos.EntregarUsuario(apodo);
+
+			listBox2.Items.Add("Mail del remitente: " + usuario1.Getmail());
 			foreach (List<String> m in usuario.GetListaNotificaciones())
 			{
 				if (m[1] == apodo)
 				{
-					notif.Add(m[0]);
+					listBox2.Items.Add("Mensaje: " + m[0]);
 				}
 				else
 				{
@@ -426,7 +473,6 @@ namespace interfaceGrupo15
 				}
 
 			}
-			textBox17.Text = string.Join(" ", notif);
 		}
 
 		private void button11_Click_1(object sender, EventArgs e) //ver mis notificaciones
@@ -451,7 +497,7 @@ namespace interfaceGrupo15
 
 		private void button36_Click(object sender, EventArgs e)
 		{
-			textBox17.Text = "";
+			listBox2.Items.Clear();
 			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
@@ -469,6 +515,60 @@ namespace interfaceGrupo15
 				}
 			}
 
+		}
+
+		private void button38_Click(object sender, EventArgs e)
+		{
+			textBox18.Text = "";
+			listBox2.Items.Clear();
+			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel5.BringToFront();
+		}
+
+		private void button40_Click(object sender, EventArgs e)
+		{
+			listbox1.Items.Clear();
+			panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel4.BringToFront();
+		}
+
+		private void button39_Click(object sender, EventArgs e) //mostrar publicaciones
+		{
+			if (comboBox8.Text == "encontrado")
+			{
+				foreach (Encontrado enc in metodos.Getlistaencontrado())
+				{
+					if (enc.GetCategoria() == comboBox9.Text)
+					{
+						listbox1.Items.Add("ID: " + enc.GetId());
+						listbox1.Items.Add("Encabezado: " + enc.GetEncabezado());
+						listbox1.Items.Add("Descripcion: " + enc.Getdescripcion());
+						listbox1.Items.Add("Usuario: " + enc.GetApodo());
+						listbox1.Items.Add("------------------------------------------------");
+					}
+				}
+			}
+			else if (comboBox8.Text == "perdido")
+			{
+				foreach (Perdido p in metodos.Getlistaperdido())
+				{
+					if (p.GetCategoria() == comboBox9.Text)
+					{
+						listbox1.Items.Add("ID: " + p.GetId());
+						listbox1.Items.Add("Encabezado: " + p.GetEncabezado());
+						listbox1.Items.Add("Descripcion: " + p.Getdescripcion());
+						listbox1.Items.Add("Usuario: " + p.GetApodo());
+						listbox1.Items.Add("------------------------------------------------");
+					}
+				}
+			}
+		}
+
+		private void button41_Click(object sender, EventArgs e)
+		{
+			listBox3.Items.Clear();
+			panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel16.BringToFront();
 		}
 	}
 }

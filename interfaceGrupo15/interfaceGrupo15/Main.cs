@@ -36,6 +36,10 @@ namespace interfaceGrupo15
 		// revisar datos unicos
 		public bool RevisarApodo(String apodo)
 		{
+			if (apodo == null)
+			{
+				return false;
+			}
 			foreach (Alumno alumno1 in alumnos)
 			{
 				if (alumno1.Getapodo() == apodo)
@@ -112,7 +116,7 @@ namespace interfaceGrupo15
 
 		}
 		// get usuarios por apodo
-		
+
 		public Alumno GetAlumno(String apodo)
 		{
 			foreach (Alumno alumno1 in alumnos)
@@ -148,7 +152,7 @@ namespace interfaceGrupo15
 			return null;
 		}
 		// crear publicacion
-		public bool CrearPublicacion( String apodo, String encabezado, String Comentario, String tipo, String categoria)
+		public bool CrearPublicacion(String apodo, String encabezado, String Comentario, String tipo, String categoria)
 		{
 			if (tipo == "perdido")
 			{
@@ -214,116 +218,18 @@ namespace interfaceGrupo15
 			}
 
 		}
-		// ver publicaciones de objetos encontrados
-		public bool VerPublicacionesEncontradas()
+		// get de lista de objetos perdidos
+		public List<Encontrado> Getlistaencontrado()
 		{
-			if (encontradas.Count() == 0)
-			{
-				return false; //No exiten publicaciones de objetos encontrados
-			}
-			else
-			{
-				foreach (Encontrado encontrado in encontradas)
-				{
-					encontrado.MostrarPublicacion();
-				}
-				return true;
-			}
-
+			return encontradas;
 		}
-		// ver publicaciones de objetos perdidos
-		public bool VerPublicacionesPerdidas()
+		public List<Perdido> Getlistaperdido()
 		{
-			if (perdidos.Count() == 0)
-			{
-				return false;//No exiten publicaciones de objetos perdidos
-			}
-			else
-			{
-				foreach (Perdido perdido in perdidos)
-				{
-					perdido.MostrarPublicacion();
-				}
-				return true;
-			}
-
+			return perdidos;
 		}
-		// ver publicaciones de objetos perdidos por categoria
-		public bool VerPublicacionesCategoriaP(String categoria)
-		{
-			if (perdidos.Count() == 0)
-			{
-				return false;//No exiten publicaciones de objetos perdidos
-			}
-			else
-			{
-				foreach (Perdido perdido in perdidos)
-				{
-					if (perdido.GetCategoria() == categoria)
-					{
-						perdido.MostrarPublicacion();
-					}
-				}
-				return true;
-			}
-
-		}
-		// ver publicaciones de objetos encontrados por categoria
-		public bool VerPublicacionesCategoriaE(String categoria)
-		{
-			if (encontradas.Count() == 0)
-			{
-				return false;//No exiten publicaciones de objetos encontrados
-			}
-			else
-			{
-				foreach (Encontrado encontrado in encontradas)
-				{
-					if (encontrado.GetCategoria() == categoria)
-					{
-						encontrado.MostrarPublicacion();
-					}
-
-				}
-				return true;
-			}
-
-		}
+		
 		// mostrar informacion de un usuario creador de una publicacion
-		public void mostrarInformacion(int id)
-		{
-			foreach (Encontrado pub in encontradas)
-			{
-				if (pub.GetId() == id)
-				{
-					foreach (Alumno alumno in alumnos)
-					{
-						if (alumno.Getapodo() == pub.GetApodo())
-						{
-							alumno.MostrarContacto();
-							break;
-						}
-					}
-					foreach (Personal personal in personals)
-					{
-						if (personal.Getapodo() == pub.GetApodo())
-						{
-							personal.MostrarContacto();
-							break;
-						}
-					}
-					foreach (Administrador admin in administradores)
-					{
-						if (admin.Getapodo() == pub.GetApodo())
-						{
-							admin.MostrarContacto();
-							break;
-						}
-					}
-					break;
-				}
-			}
-		}
+		
 		//entrega el usuario a partir del apodo
 		public Usuario EntregarUsuario(String apodo)
 		{
@@ -351,7 +257,7 @@ namespace interfaceGrupo15
 			return null;
 		}
 		//eliminar publicacion por usuario
-		public bool EliminarPublicacionUsuario(Usuario usuario, String id)
+		public bool EliminarPublicacionUsuario(Usuario usuario, string id)
 		{
 			try
 			{
@@ -599,32 +505,7 @@ namespace interfaceGrupo15
 				return true; // Usuario eliminado con exito
 			}
 		}
-		// ver todos los usuarios         
-		public bool verUsuario()
-		{
-			if (alumnos.Count() > 0)
-			{
-				foreach (Alumno alumno3 in alumnos)
-				{
-					alumno3.MostrarContacto();
-				}
-				return true;
-			}
-			if (personals.Count() > 0)
-			{
-				foreach (Personal personal in personals)
-				{
-					personal.MostrarContacto();
-				}
-				return true;
-			}
-			else
-			{
-				return false; //No hay usuarios que mostrar
-			}
-
-		}
-
+		
 		public bool CrearUsuario(String nombre, String apodo, String telefono, String mail, String contraseña, String tipo, String cc)
 		{
 			if (tipo == "alumno")
@@ -645,6 +526,14 @@ namespace interfaceGrupo15
 			{
 				return false; //Tipo de usuario no existente
 			}
+		}
+		public List<Alumno> GetListaAlumnos()
+		{
+			return alumnos;
+		}
+		public List<Personal> GetListaPersonal()
+		{
+			return personals;
 		}
 	}
 
