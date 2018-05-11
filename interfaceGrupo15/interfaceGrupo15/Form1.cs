@@ -153,17 +153,44 @@ namespace interfaceGrupo15
 					Usuario usuario = metodos.EntregarUsuario(apodo);
 					if (contraseña == usuario.Getcontraseña())
 					{
-						if (tipo == "administrador")
+						if (tipo == "administrador")// menu de adm
 						{
-							// menu de adm
-							panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-							panel10.BringToFront();
+							if (metodos.GetAdministrador(apodo) != null)
+							{
+								panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+								panel10.BringToFront();
+							}
+							else
+							{
+								String var = "Tipo de usuario mal ingresado";
+								label14.Text = var;
+							}
 						}
-						else
+						else if (tipo == "alumno")// menu usuario
 						{
-							//menu de usuario
-							panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-							panel4.BringToFront();
+							if (metodos.GetAlumno(apodo) != null)
+							{
+								panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+								panel4.BringToFront();
+							}
+							else
+							{
+								String var = "Tipo de usuario mal ingresado";
+								label14.Text = var;
+							}
+						}
+						if (tipo == "personal")// menu usuario
+						{
+							if (metodos.GetPersonal(apodo) != null)
+							{
+								panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+								panel4.BringToFront();
+							}
+							else
+							{
+								String var = "Tipo de usuario mal ingresado";
+								label14.Text = var;
+							}
 						}
 					}
 					else
@@ -304,7 +331,7 @@ namespace interfaceGrupo15
 			else
 			{
 				Usuario usuarionotificado = metodos.EntregarUsuario(apodonotificado);
-				if (usuarionotificado.AgregarNotificacion(usuarioManda, notificacion) == "bien")
+				if (usuarionotificado.AgregarNotificacion(usuarionotificado, notificacion) == "bien")
 				{
 					label29.Text = "Notificacion enviada";
 				}
@@ -388,6 +415,7 @@ namespace interfaceGrupo15
 		private void button25_Click(object sender, EventArgs e)
 		{
             label36.Text = "";
+			comboBox10.Items.Clear();
             panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
@@ -400,7 +428,9 @@ namespace interfaceGrupo15
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
-            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			textBox7.Clear();
+			textBox8.Clear();
+			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.BringToFront();
         }
 
@@ -525,7 +555,7 @@ namespace interfaceGrupo15
 				}
 				else
 				{
-					this.comboBox6.Items.Add(p[1]);
+					comboBox6.Items.Add(p[1]);
 				}
 
 			}
@@ -558,6 +588,7 @@ namespace interfaceGrupo15
 		private void button38_Click(object sender, EventArgs e)
 		{
 			textBox18.Text = "";
+			comboBox7.Items.Clear();
 			listBox2.Items.Clear();
 			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();

@@ -166,14 +166,14 @@
 			this.listBox3 = new System.Windows.Forms.ListBox();
 			this.label51 = new System.Windows.Forms.Label();
 			this.panel17 = new System.Windows.Forms.Panel();
-			this.label52 = new System.Windows.Forms.Label();
-			this.label53 = new System.Windows.Forms.Label();
-			this.label54 = new System.Windows.Forms.Label();
-			this.comboBox11 = new System.Windows.Forms.ComboBox();
-			this.comboBox12 = new System.Windows.Forms.ComboBox();
-			this.listBox4 = new System.Windows.Forms.ListBox();
-			this.button42 = new System.Windows.Forms.Button();
 			this.button43 = new System.Windows.Forms.Button();
+			this.button42 = new System.Windows.Forms.Button();
+			this.listBox4 = new System.Windows.Forms.ListBox();
+			this.comboBox12 = new System.Windows.Forms.ComboBox();
+			this.comboBox11 = new System.Windows.Forms.ComboBox();
+			this.label54 = new System.Windows.Forms.Label();
+			this.label53 = new System.Windows.Forms.Label();
+			this.label52 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel5.SuspendLayout();
@@ -536,9 +536,9 @@
 			this.panel3.Controls.Add(this.label12);
 			this.panel3.Controls.Add(this.label11);
 			this.panel3.Controls.Add(this.label10);
-			this.panel3.Location = new System.Drawing.Point(12, 117);
+			this.panel3.Location = new System.Drawing.Point(27, 105);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(73, 35);
+			this.panel3.Size = new System.Drawing.Size(45, 46);
 			this.panel3.TabIndex = 4;
 			// 
 			// label14
@@ -1075,9 +1075,9 @@
 			this.panel10.Controls.Add(this.button27);
 			this.panel10.Controls.Add(this.button26);
 			this.panel10.Controls.Add(this.label37);
-			this.panel10.Location = new System.Drawing.Point(29, 410);
+			this.panel10.Location = new System.Drawing.Point(43, 410);
 			this.panel10.Name = "panel10";
-			this.panel10.Size = new System.Drawing.Size(50, 38);
+			this.panel10.Size = new System.Drawing.Size(42, 31);
 			this.panel10.TabIndex = 16;
 			// 
 			// button30
@@ -1508,9 +1508,9 @@
 			this.panel16.Controls.Add(this.button41);
 			this.panel16.Controls.Add(this.listBox3);
 			this.panel16.Controls.Add(this.label51);
-			this.panel16.Location = new System.Drawing.Point(224, 43);
+			this.panel16.Location = new System.Drawing.Point(124, 239);
 			this.panel16.Name = "panel16";
-			this.panel16.Size = new System.Drawing.Size(564, 387);
+			this.panel16.Size = new System.Drawing.Size(36, 42);
 			this.panel16.TabIndex = 22;
 			// 
 			// button41
@@ -1555,43 +1555,33 @@
 			this.panel17.Size = new System.Drawing.Size(38, 25);
 			this.panel17.TabIndex = 23;
 			// 
-			// label52
+			// button43
 			// 
-			this.label52.AutoSize = true;
-			this.label52.Location = new System.Drawing.Point(233, 20);
-			this.label52.Name = "label52";
-			this.label52.Size = new System.Drawing.Size(73, 13);
-			this.label52.TabIndex = 0;
-			this.label52.Text = "Publicaciones";
+			this.button43.Location = new System.Drawing.Point(35, 325);
+			this.button43.Name = "button43";
+			this.button43.Size = new System.Drawing.Size(75, 23);
+			this.button43.TabIndex = 7;
+			this.button43.Text = "Atras";
+			this.button43.UseVisualStyleBackColor = true;
+			this.button43.Click += new System.EventHandler(this.button43_Click);
 			// 
-			// label53
+			// button42
 			// 
-			this.label53.AutoSize = true;
-			this.label53.Location = new System.Drawing.Point(85, 58);
-			this.label53.Name = "label53";
-			this.label53.Size = new System.Drawing.Size(28, 13);
-			this.label53.TabIndex = 1;
-			this.label53.Text = "Tipo";
+			this.button42.Location = new System.Drawing.Point(443, 325);
+			this.button42.Name = "button42";
+			this.button42.Size = new System.Drawing.Size(75, 23);
+			this.button42.TabIndex = 6;
+			this.button42.Text = "Ver";
+			this.button42.UseVisualStyleBackColor = true;
+			this.button42.Click += new System.EventHandler(this.button42_Click);
 			// 
-			// label54
+			// listBox4
 			// 
-			this.label54.AutoSize = true;
-			this.label54.Location = new System.Drawing.Point(77, 90);
-			this.label54.Name = "label54";
-			this.label54.Size = new System.Drawing.Size(52, 13);
-			this.label54.TabIndex = 2;
-			this.label54.Text = "Categoria";
-			// 
-			// comboBox11
-			// 
-			this.comboBox11.FormattingEnabled = true;
-			this.comboBox11.Items.AddRange(new object[] {
-            "perdido",
-            "encontrado"});
-			this.comboBox11.Location = new System.Drawing.Point(136, 56);
-			this.comboBox11.Name = "comboBox11";
-			this.comboBox11.Size = new System.Drawing.Size(162, 21);
-			this.comboBox11.TabIndex = 3;
+			this.listBox4.FormattingEnabled = true;
+			this.listBox4.Location = new System.Drawing.Point(50, 130);
+			this.listBox4.Name = "listBox4";
+			this.listBox4.Size = new System.Drawing.Size(452, 173);
+			this.listBox4.TabIndex = 5;
 			// 
 			// comboBox12
 			// 
@@ -1607,33 +1597,43 @@
 			this.comboBox12.Size = new System.Drawing.Size(162, 21);
 			this.comboBox12.TabIndex = 4;
 			// 
-			// listBox4
+			// comboBox11
 			// 
-			this.listBox4.FormattingEnabled = true;
-			this.listBox4.Location = new System.Drawing.Point(50, 130);
-			this.listBox4.Name = "listBox4";
-			this.listBox4.Size = new System.Drawing.Size(452, 173);
-			this.listBox4.TabIndex = 5;
+			this.comboBox11.FormattingEnabled = true;
+			this.comboBox11.Items.AddRange(new object[] {
+            "perdido",
+            "encontrado"});
+			this.comboBox11.Location = new System.Drawing.Point(136, 56);
+			this.comboBox11.Name = "comboBox11";
+			this.comboBox11.Size = new System.Drawing.Size(162, 21);
+			this.comboBox11.TabIndex = 3;
 			// 
-			// button42
+			// label54
 			// 
-			this.button42.Location = new System.Drawing.Point(443, 325);
-			this.button42.Name = "button42";
-			this.button42.Size = new System.Drawing.Size(75, 23);
-			this.button42.TabIndex = 6;
-			this.button42.Text = "Ver";
-			this.button42.UseVisualStyleBackColor = true;
-			this.button42.Click += new System.EventHandler(this.button42_Click);
+			this.label54.AutoSize = true;
+			this.label54.Location = new System.Drawing.Point(77, 90);
+			this.label54.Name = "label54";
+			this.label54.Size = new System.Drawing.Size(52, 13);
+			this.label54.TabIndex = 2;
+			this.label54.Text = "Categoria";
 			// 
-			// button43
+			// label53
 			// 
-			this.button43.Location = new System.Drawing.Point(35, 325);
-			this.button43.Name = "button43";
-			this.button43.Size = new System.Drawing.Size(75, 23);
-			this.button43.TabIndex = 7;
-			this.button43.Text = "Atras";
-			this.button43.UseVisualStyleBackColor = true;
-			this.button43.Click += new System.EventHandler(this.button43_Click);
+			this.label53.AutoSize = true;
+			this.label53.Location = new System.Drawing.Point(85, 58);
+			this.label53.Name = "label53";
+			this.label53.Size = new System.Drawing.Size(28, 13);
+			this.label53.TabIndex = 1;
+			this.label53.Text = "Tipo";
+			// 
+			// label52
+			// 
+			this.label52.AutoSize = true;
+			this.label52.Location = new System.Drawing.Point(233, 20);
+			this.label52.Name = "label52";
+			this.label52.Size = new System.Drawing.Size(73, 13);
+			this.label52.TabIndex = 0;
+			this.label52.Text = "Publicaciones";
 			// 
 			// Form1
 			// 
