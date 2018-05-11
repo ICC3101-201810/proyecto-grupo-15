@@ -163,6 +163,9 @@ namespace interfaceGrupo15
         {
             return notificaciones;
         }
-
+		public List<Publicacion> GetListaPublicaciones()
+		{
+			return publicaciones;
+		}
 	}
 }

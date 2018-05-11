@@ -184,18 +184,7 @@ namespace interfaceGrupo15
 			panel4.BringToFront();
 		}
 
-		private void button11_Click(object sender, EventArgs e) //ver notificaciones en perfil
-		{
-            String apodo = textBox7.Text;
-            Usuario usuario = metodos.EntregarUsuario(apodo);
-            foreach (List<String> p in usuario.GetListaNotificaciones())
-            {
-                listView1.Columns.Add("File type", 20, HorizontalAlignment.Left);
-                //listView1.Items.AddRange(new ListViewItem[] { p[1], p[2], p[0] });
-            }
-            panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel13.BringToFront();
-        }
+	
 
 		private void button13_Click(object sender, EventArgs e) //enviar notificacion a un usuario en perfil
 		{
@@ -211,7 +200,15 @@ namespace interfaceGrupo15
 
 		private void button15_Click(object sender, EventArgs e) // ver mis publicaciones en perfil
 		{
-
+			String apodo = textBox7.Text;
+			Usuario usuario = metodos.EntregarUsuario(apodo);
+			foreach (Publicacion p in usuario.GetListaPublicaciones())
+			{
+				this.comboBox7.Items.Add(p.GetEncabezado());
+			}
+			textBox18.Text = "";
+			panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel14.BringToFront();
 		}
 
 		private void button16_Click(object sender, EventArgs e) //eliminar una publicacion en perfil
@@ -239,8 +236,8 @@ namespace interfaceGrupo15
             textBox9.Clear();
             textBox10.Clear();
             label25.Text = "";
-            panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel5.BringToFront();
+            panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel4.BringToFront();
 		}
 
 		private void button21_Click(object sender, EventArgs e) // enviar notificacion
@@ -409,5 +406,69 @@ namespace interfaceGrupo15
             panel10.BringToFront();
 
         }
-    }
+
+
+		private void button35_Click_1(object sender, EventArgs e) //ver notif
+		{
+			String apodousuario = textBox7.Text;
+			String apodo = comboBox6.Text;
+			Usuario usuario = metodos.EntregarUsuario(apodousuario);
+			List<String> notif = new List<string>();
+			foreach (List<String> m in usuario.GetListaNotificaciones())
+			{
+				if (m[1] == apodo)
+				{
+					notif.Add(m[0]);
+				}
+				else
+				{
+					continue;
+				}
+
+			}
+			textBox17.Text = string.Join(" ", notif);
+		}
+
+		private void button11_Click_1(object sender, EventArgs e) //ver mis notificaciones
+		{
+			String apodo = textBox7.Text;
+			Usuario usuario = metodos.EntregarUsuario(apodo);
+			foreach (List<String> p in usuario.GetListaNotificaciones())
+			{
+				if (comboBox6.Items.Contains(p[1]))
+				{
+					continue;
+				}
+				else
+				{
+					this.comboBox6.Items.Add(p[1]);
+				}
+
+			}
+			panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel13.BringToFront();
+		}
+
+		private void button36_Click(object sender, EventArgs e)
+		{
+			textBox17.Text = "";
+			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel5.BringToFront();
+		}
+
+		private void button37_Click(object sender, EventArgs e)
+		{
+			String encabezado = comboBox7.Text;
+			String apodo = textBox7.Text;
+			Usuario usuario = metodos.EntregarUsuario(apodo);
+			foreach (Publicacion p in usuario.GetListaPublicaciones())
+			{
+				if (encabezado == p.GetEncabezado())
+				{
+					textBox18.Text = p.Getdescripcion();
+				}
+			}
+
+		}
+	}
 }

@@ -33,6 +33,14 @@ namespace interfaceGrupo15
 			return apodo;
 		}
 
+		public String GetEncabezado()
+		{
+			return encabezado;
+		}
+		public String Getdescripcion()
+		{
+			return comentario;
+		}
 
 
 
