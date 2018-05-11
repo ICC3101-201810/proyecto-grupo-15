@@ -13,13 +13,35 @@ namespace interfaceGrupo15
 	public partial class Form1 : Form
 	{
 		Main metodos = new Main();
+
 		public Form1()
 		{
 		
 			InitializeComponent();
+			Administrador admin = new Administrador("ernesto", "ejrios@miuandes.cl", "ejrios", "9876543", "1234");
+			Administrador admin1 = new Administrador("nicolas", "naulloa@miuandes.cl", "nico", "9876234", "hola");
+			Administrador admin2 = new Administrador("catalina", "cbsanchez@miuandes.cl", "cbsanchez", "9386543", "cata");
+			metodos.guardarAdministrador(admin);
+			metodos.guardarAdministrador(admin1);
+			metodos.guardarAdministrador(admin2);
+			Alumno alumno5 = new Alumno("matias", "matias@miuandes.cl", "mati", "9967399", "mati123", "ing");
+			Alumno alumno6 = new Alumno("paulina", "paulina@miuandes.cl", "palu", "9529099", "paulina1", "ing");
+			metodos.guardarAlumno(alumno5);
+			metodos.guardarAlumno(alumno6);
+			Personal personal1 = new Personal("rodrigo", "rodrigo@uandes.cl", "rodri", "234567", "0123456789", "director");
+			Personal personal2 = new Personal("carla", "carla@uandes.cl", "carla23", "778899", "juan", "secretaria");
+			metodos.guardarPersonal(personal1);
+			metodos.guardarPersonal(personal2);
+			Encontrado encontrado3 = new Encontrado("iphone4", "Encontre en el reloj un iphone4 con un fondo de pantalla con un perro", "Electronico", 1, "mati");
+			metodos.guardarEncontrado(encontrado3, alumno5);
+			Encontrado encontrado5 = new Encontrado("botella de agua", "Encontre una botella de agua en la sala B24, la deje en porteria del edificio de biblioteca", "Otros", 3, "palu");
+			metodos.guardarEncontrado(encontrado5, alumno6);
+			Perdido perdido6 = new Perdido("cuaderno", "Se me perdio un cuaderno rosado, la ultima vez que lo vi fue en los ciruelos", "Utiles", 2, "carla23");
+			metodos.guardarPerdido(perdido6, personal2);
+			Perdido perdido7 = new Perdido("chaleco verde", "Se me perdio un chaleco vere, lo deje en el cafe de biblioteca", "Ropa", 4, "carla23");
+			metodos.guardarPerdido(perdido7, personal2);
 			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel1.BringToFront();
-			//this.Refresh();
 
 		}
 		private void button1_Click(object sender, EventArgs e)
@@ -49,7 +71,17 @@ namespace interfaceGrupo15
 			String mail = textBox5.Text;
 			String tipo = comboBox1.Text;
 			String cc = textBox6.Text;
-			if (metodos.RevisarApodo(apodo))
+			if ((apodo == null) | (Contraseña == null) | (mail == null) | (telefono == null) | (cc == null) | (nombre == null))
+			{
+				String var = "Alguno de los campos esta sin rellenar";
+				label9.Text = var;
+			}
+			else if ((apodo == "") | (Contraseña == "") | (mail == "") | (telefono == "") | (cc == "") | (nombre == ""))
+			{
+				String var = "Alguno de los campos esta sin rellenar";
+				label9.Text = var;
+			}
+			else if (metodos.RevisarApodo(apodo))
 			{
 				if (metodos.RevisarMail(mail))
 				{
@@ -98,6 +130,12 @@ namespace interfaceGrupo15
 			String contraseña = textBox8.Text;
 			String tipo = comboBox2.Text;
 			if ((apodo == null) | (contraseña == null))
+			{
+				String var = "Apodo o Contraseña sin texto";
+				label14.Text = var;
+				label14.Text = var;
+			}
+			else if ((apodo == "") | (contraseña == ""))
 			{
 				String var = "Apodo o Contraseña sin texto";
 				label14.Text = var;
@@ -374,8 +412,8 @@ namespace interfaceGrupo15
 
         private void button26_Click(object sender, EventArgs e) // ver publicaciones administrador
         {
-			panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel15.BringToFront();
+			panel17.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel17.BringToFront();
 		}
 
         private void button28_Click(object sender, EventArgs e) //eliminr usuario administrador
@@ -567,8 +605,47 @@ namespace interfaceGrupo15
 		private void button41_Click(object sender, EventArgs e)
 		{
 			listBox3.Items.Clear();
-			panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel16.BringToFront();
+			panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel10.BringToFront();
+		}
+
+		private void button42_Click(object sender, EventArgs e)
+		{
+			if (comboBox11.Text == "encontrado")
+			{
+				foreach (Encontrado enc in metodos.Getlistaencontrado())
+				{
+					if (enc.GetCategoria() == comboBox12.Text)
+					{
+						listBox4.Items.Add("ID: " + enc.GetId());
+						listBox4.Items.Add("Encabezado: " + enc.GetEncabezado());
+						listBox4.Items.Add("Descripcion: " + enc.Getdescripcion());
+						listBox4.Items.Add("Usuario: " + enc.GetApodo());
+						listBox4.Items.Add("------------------------------------------------");
+					}
+				}
+			}
+			else if (comboBox11.Text == "perdido")
+			{
+				foreach (Perdido p in metodos.Getlistaperdido())
+				{
+					if (p.GetCategoria() == comboBox12.Text)
+					{
+						listBox4.Items.Add("ID: " + p.GetId());
+						listBox4.Items.Add("Encabezado: " + p.GetEncabezado());
+						listBox4.Items.Add("Descripcion: " + p.Getdescripcion());
+						listBox4.Items.Add("Usuario: " + p.GetApodo());
+						listBox4.Items.Add("------------------------------------------------");
+					}
+				}
+			}
+		}
+
+		private void button43_Click(object sender, EventArgs e)
+		{
+			listBox4.Items.Clear();
+			panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+			panel10.BringToFront();
 		}
 	}
 }

@@ -14,11 +14,7 @@ namespace interfaceGrupo15
 		{
 			categoria = miCategoria;
 		}
-		public override void MostrarPublicacion()
-		{
-			Console.WriteLine("Categoria: " + categoria);
-			base.MostrarPublicacion();
-		}
+		
 
 		public String GetCategoria()
 		{
