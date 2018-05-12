@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace interfaceGrupo15
 {
+	[Serializable]
 	public class Encontrado : Publicacion
 	{
 		String categoria;

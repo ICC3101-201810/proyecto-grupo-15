@@ -834,9 +834,9 @@
 			this.panel7.Controls.Add(this.label28);
 			this.panel7.Controls.Add(this.label27);
 			this.panel7.Controls.Add(this.label26);
-			this.panel7.Location = new System.Drawing.Point(27, 301);
+			this.panel7.Location = new System.Drawing.Point(38, 282);
 			this.panel7.Name = "panel7";
-			this.panel7.Size = new System.Drawing.Size(51, 22);
+			this.panel7.Size = new System.Drawing.Size(33, 49);
 			this.panel7.TabIndex = 13;
 			// 
 			// label29
@@ -1213,9 +1213,9 @@
 			this.panel12.Controls.Add(this.textBox16);
 			this.panel12.Controls.Add(this.label42);
 			this.panel12.Controls.Add(this.label41);
-			this.panel12.Location = new System.Drawing.Point(101, 68);
+			this.panel12.Location = new System.Drawing.Point(208, 38);
 			this.panel12.Name = "panel12";
-			this.panel12.Size = new System.Drawing.Size(41, 34);
+			this.panel12.Size = new System.Drawing.Size(580, 340);
 			this.panel12.TabIndex = 18;
 			// 
 			// label43
@@ -1279,9 +1279,9 @@
 			this.panel13.Controls.Add(this.comboBox6);
 			this.panel13.Controls.Add(this.label45);
 			this.panel13.Controls.Add(this.label44);
-			this.panel13.Location = new System.Drawing.Point(101, 117);
+			this.panel13.Location = new System.Drawing.Point(119, 114);
 			this.panel13.Name = "panel13";
-			this.panel13.Size = new System.Drawing.Size(27, 33);
+			this.panel13.Size = new System.Drawing.Size(34, 37);
 			this.panel13.TabIndex = 19;
 			// 
 			// listBox2
@@ -1347,9 +1347,9 @@
 			this.panel14.Controls.Add(this.comboBox7);
 			this.panel14.Controls.Add(this.label47);
 			this.panel14.Controls.Add(this.label46);
-			this.panel14.Location = new System.Drawing.Point(107, 169);
+			this.panel14.Location = new System.Drawing.Point(108, 167);
 			this.panel14.Name = "panel14";
-			this.panel14.Size = new System.Drawing.Size(92, 64);
+			this.panel14.Size = new System.Drawing.Size(40, 45);
 			this.panel14.TabIndex = 20;
 			// 
 			// button38

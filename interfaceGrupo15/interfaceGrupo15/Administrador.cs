@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace interfaceGrupo15
 {
+	[Serializable]
 	public class Administrador : Usuario
 	{
 		public Administrador(String nombre, String mail, String apodo, String telefono, String clave)

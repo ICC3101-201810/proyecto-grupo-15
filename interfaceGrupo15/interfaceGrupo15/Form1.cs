@@ -7,17 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace interfaceGrupo15
 {
 	public partial class Form1 : Form
 	{
-		Main metodos = new Main();
+		Main metodos;
 
 		public Form1()
 		{
 		
 			InitializeComponent();
+			String pathGuardado = Directory.GetCurrentDirectory();
+			try
+			{
+				using (Stream stream = File.Open(pathGuardado, FileMode.Open))
+				{
+					BinaryFormatter bin = new BinaryFormatter();
+					metodos = (Main)bin.Deserialize(stream);
+
+				}
+			}
+			catch
+			{
+				metodos = new Main();
+			}
 			Administrador admin = new Administrador("ernesto", "ejrios@miuandes.cl", "ejrios", "9876543", "1234");
 			Administrador admin1 = new Administrador("nicolas", "naulloa@miuandes.cl", "nico", "9876234", "hola");
 			Administrador admin2 = new Administrador("catalina", "cbsanchez@miuandes.cl", "cbsanchez", "9386543", "cata");
@@ -59,6 +75,18 @@ namespace interfaceGrupo15
 
 		private void button3_Click(object sender, EventArgs e) //salir
 		{
+			String pathGuardado = Directory.GetCurrentDirectory();
+			try
+			{
+				using (Stream stream = File.Open(pathGuardado, FileMode.Create))
+				{
+					BinaryFormatter bin = new BinaryFormatter();
+					bin.Serialize(stream, metodos);
+				}
+			}
+			catch (Exception u)
+			{
+			}
 			Application.Exit();
 		}
 
@@ -566,6 +594,7 @@ namespace interfaceGrupo15
 		private void button36_Click(object sender, EventArgs e)
 		{
 			listBox2.Items.Clear();
+			comboBox6.Items.Clear();
 			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}

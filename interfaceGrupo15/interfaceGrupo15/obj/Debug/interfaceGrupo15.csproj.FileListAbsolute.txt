@@ -28,3 +28,13 @@ C:\Users\jasanchez\Desktop\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\o
 \\Mac\Home\Desktop\proyecto g 15\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.exe.config
 \\Mac\Home\Desktop\proyecto g 15\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.exe
 \\Mac\Home\Desktop\proyecto g 15\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.pdb
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.csprojAssemblyReference.cache
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.Form1.resources
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.Properties.Resources.resources
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.csproj.GenerateResource.cache
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.exe
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\obj\Debug\interfaceGrupo15.pdb
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.exe.config
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.exe
+\\Mac\Home\Desktop\Otro mas\proyecto-grupo-15\interfaceGrupo15\interfaceGrupo15\bin\Debug\interfaceGrupo15.pdb

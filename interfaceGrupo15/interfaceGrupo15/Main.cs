@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace interfaceGrupo15
 {
+	[Serializable]
 	public class Main
 	{
 		List<Alumno> alumnos = new List<Alumno>();
@@ -19,6 +21,7 @@ namespace interfaceGrupo15
 		{
 		}
 
+		
 		public void GenerarTXT()
 		{
 			String rutacompleta = @" D:\RegistroApp.txt";
