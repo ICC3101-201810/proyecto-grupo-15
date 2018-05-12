@@ -20,42 +20,41 @@ namespace interfaceGrupo15
 		{
 		
 			InitializeComponent();
-			String pathGuardado = Directory.GetCurrentDirectory();
-			try
+			if (File.Exists("../../Serialize.txt"))
 			{
-				using (Stream stream = File.Open(pathGuardado, FileMode.Open))
-				{
-					BinaryFormatter bin = new BinaryFormatter();
-					metodos = (Main)bin.Deserialize(stream);
-
-				}
+				BinaryFormatter bin = new BinaryFormatter();
+				Stream stream = new FileStream("../../Serialize.txt", FileMode.Open, FileAccess.Read);
+				metodos = new Main();
+				metodos = (Main)bin.Deserialize(stream);
+				stream.Close();
 			}
-			catch
+			else
 			{
 				metodos = new Main();
+				Administrador admin = new Administrador("ernesto", "ejrios@miuandes.cl", "ejrios", "9876543", "1234");
+				Administrador admin1 = new Administrador("nicolas", "naulloa@miuandes.cl", "nico", "9876234", "hola");
+				Administrador admin2 = new Administrador("catalina", "cbsanchez@miuandes.cl", "cbsanchez", "9386543", "cata");
+				metodos.guardarAdministrador(admin);
+				metodos.guardarAdministrador(admin1);
+				metodos.guardarAdministrador(admin2);
+				Alumno alumno5 = new Alumno("matias", "matias@miuandes.cl", "mati", "9967399", "mati123", "ing");
+				Alumno alumno6 = new Alumno("paulina", "paulina@miuandes.cl", "palu", "9529099", "paulina1", "ing");
+				metodos.guardarAlumno(alumno5);
+				metodos.guardarAlumno(alumno6);
+				Personal personal1 = new Personal("rodrigo", "rodrigo@uandes.cl", "rodri", "234567", "0123456789", "director");
+				Personal personal2 = new Personal("carla", "carla@uandes.cl", "carla23", "778899", "juan", "secretaria");
+				metodos.guardarPersonal(personal1);
+				metodos.guardarPersonal(personal2);
+				Encontrado encontrado3 = new Encontrado("iphone4", "Encontre en el reloj un iphone4 con un fondo de pantalla con un perro", "Electronico", 1, "mati");
+				metodos.guardarEncontrado(encontrado3, alumno5);
+				Encontrado encontrado5 = new Encontrado("botella de agua", "Encontre una botella de agua en la sala B24, la deje en porteria del edificio de biblioteca", "Otros", 3, "palu");
+				metodos.guardarEncontrado(encontrado5, alumno6);
+				Perdido perdido6 = new Perdido("cuaderno", "Se me perdio un cuaderno rosado, la ultima vez que lo vi fue en los ciruelos", "Utiles", 2, "carla23");
+				metodos.guardarPerdido(perdido6, personal2);
+				Perdido perdido7 = new Perdido("chaleco verde", "Se me perdio un chaleco vere, lo deje en el cafe de biblioteca", "Ropa", 4, "carla23");
+				metodos.guardarPerdido(perdido7, personal2);
 			}
-			Administrador admin = new Administrador("ernesto", "ejrios@miuandes.cl", "ejrios", "9876543", "1234");
-			Administrador admin1 = new Administrador("nicolas", "naulloa@miuandes.cl", "nico", "9876234", "hola");
-			Administrador admin2 = new Administrador("catalina", "cbsanchez@miuandes.cl", "cbsanchez", "9386543", "cata");
-			metodos.guardarAdministrador(admin);
-			metodos.guardarAdministrador(admin1);
-			metodos.guardarAdministrador(admin2);
-			Alumno alumno5 = new Alumno("matias", "matias@miuandes.cl", "mati", "9967399", "mati123", "ing");
-			Alumno alumno6 = new Alumno("paulina", "paulina@miuandes.cl", "palu", "9529099", "paulina1", "ing");
-			metodos.guardarAlumno(alumno5);
-			metodos.guardarAlumno(alumno6);
-			Personal personal1 = new Personal("rodrigo", "rodrigo@uandes.cl", "rodri", "234567", "0123456789", "director");
-			Personal personal2 = new Personal("carla", "carla@uandes.cl", "carla23", "778899", "juan", "secretaria");
-			metodos.guardarPersonal(personal1);
-			metodos.guardarPersonal(personal2);
-			Encontrado encontrado3 = new Encontrado("iphone4", "Encontre en el reloj un iphone4 con un fondo de pantalla con un perro", "Electronico", 1, "mati");
-			metodos.guardarEncontrado(encontrado3, alumno5);
-			Encontrado encontrado5 = new Encontrado("botella de agua", "Encontre una botella de agua en la sala B24, la deje en porteria del edificio de biblioteca", "Otros", 3, "palu");
-			metodos.guardarEncontrado(encontrado5, alumno6);
-			Perdido perdido6 = new Perdido("cuaderno", "Se me perdio un cuaderno rosado, la ultima vez que lo vi fue en los ciruelos", "Utiles", 2, "carla23");
-			metodos.guardarPerdido(perdido6, personal2);
-			Perdido perdido7 = new Perdido("chaleco verde", "Se me perdio un chaleco vere, lo deje en el cafe de biblioteca", "Ropa", 4, "carla23");
-			metodos.guardarPerdido(perdido7, personal2);
+			
 			panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel1.BringToFront();
 
@@ -75,17 +74,19 @@ namespace interfaceGrupo15
 
 		private void button3_Click(object sender, EventArgs e) //salir
 		{
-			String pathGuardado = Directory.GetCurrentDirectory();
-			try
+			if (File.Exists("../../Serialize.txt"))
 			{
-				using (Stream stream = File.Open(pathGuardado, FileMode.Create))
-				{
-					BinaryFormatter bin = new BinaryFormatter();
-					bin.Serialize(stream, metodos);
-				}
+				BinaryFormatter bin = new BinaryFormatter();
+				Stream stream = new FileStream("../../Serialize.txt", FileMode.Open, FileAccess.Write);
+				bin.Serialize(stream, metodos);
+				stream.Close();
 			}
-			catch (Exception u)
+			else
 			{
+				BinaryFormatter bin = new BinaryFormatter();
+				Stream stream = new FileStream("../../Serialize.txt", FileMode.Create, FileAccess.Write);
+				bin.Serialize(stream, metodos);
+				stream.Close();
 			}
 			Application.Exit();
 		}
