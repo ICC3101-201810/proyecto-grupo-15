@@ -21,20 +21,6 @@ namespace interfaceGrupo15
 		{
 		}
 
-		
-		public void GenerarTXT()
-		{
-			String rutacompleta = @" D:\RegistroApp.txt";
-			String texto = "APP objetos perdidos";
-			using (StreamWriter mylogs = File.AppendText(rutacompleta))
-			{
-				DateTime datetime = new DateTime();
-				datetime = DateTime.Now;
-				String strDate = Convert.ToDateTime(datetime).ToString("yyMMdd");
-				mylogs.WriteLine(texto + strDate);
-				mylogs.Close();
-			}
-		}
 
 		// revisar datos unicos
 		public bool RevisarApodo(String apodo)

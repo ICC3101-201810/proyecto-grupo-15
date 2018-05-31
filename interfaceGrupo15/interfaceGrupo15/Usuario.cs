@@ -74,9 +74,9 @@ namespace interfaceGrupo15
 		{
 			List<String> usuarioquelacrea = new List<string>();
 			usuarioquelacrea.Add(notificacion);
-			usuarioquelacrea.Add(apodo);
-			usuarioquelacrea.Add(mail);
-			usuario.notificaciones.Add(usuarioquelacrea);
+			usuarioquelacrea.Add(usuario.Getapodo());
+			usuarioquelacrea.Add(usuario.Getmail());
+			notificaciones.Add(usuarioquelacrea);
 			return "bien"; //Notificacion creada con exito
 		}
 		

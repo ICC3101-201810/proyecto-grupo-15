@@ -34,7 +34,9 @@ namespace interfaceGrupo15
 				Administrador admin = new Administrador("ernesto", "ejrios@miuandes.cl", "ejrios", "9876543", "1234");
 				Administrador admin1 = new Administrador("nicolas", "naulloa@miuandes.cl", "nico", "9876234", "hola");
 				Administrador admin2 = new Administrador("catalina", "cbsanchez@miuandes.cl", "cbsanchez", "9386543", "cata");
-				metodos.guardarAdministrador(admin);
+                Administrador admin3 = new Administrador("santiago", "safernandez1@miuandes.cl", "safernandez1", "93245867", "ayudante");
+                metodos.guardarAdministrador(admin3);
+                metodos.guardarAdministrador(admin);
 				metodos.guardarAdministrador(admin1);
 				metodos.guardarAdministrador(admin2);
 				Alumno alumno5 = new Alumno("matias", "matias@miuandes.cl", "mati", "9967399", "mati123", "ing");
@@ -45,7 +47,7 @@ namespace interfaceGrupo15
 				Personal personal2 = new Personal("carla", "carla@uandes.cl", "carla23", "778899", "juan", "secretaria");
 				metodos.guardarPersonal(personal1);
 				metodos.guardarPersonal(personal2);
-				Encontrado encontrado3 = new Encontrado("iphone4", "Encontre en el reloj un iphone4 con un fondo de pantalla con un perro", "Electronico", 1, "mati");
+				Encontrado encontrado3 = new Encontrado("iphone4", "Encontre en el reloj un iphone4 con un fondo de pantalla con un perro", "Electronica", 1, "mati");
 				metodos.guardarEncontrado(encontrado3, alumno5);
 				Encontrado encontrado5 = new Encontrado("botella de agua", "Encontre una botella de agua en la sala B24, la deje en porteria del edificio de biblioteca", "Otros", 3, "palu");
 				metodos.guardarEncontrado(encontrado5, alumno6);
@@ -119,7 +121,13 @@ namespace interfaceGrupo15
 						// escribir que se ha creado con exito
 						String var = "Usuario creado con exito";
 						label9.Text = var;
-					}
+                        textBox1.Clear();
+                        textBox2.Clear();
+                        textBox3.Clear();
+                        textBox4.Clear();
+                        textBox5.Clear();
+                        textBox6.Clear();
+                    }
 					else
 					{
 						// escribir que se ha ingresado mal el tipo
@@ -188,7 +196,7 @@ namespace interfaceGrupo15
 							{
 								panel10.Dock = System.Windows.Forms.DockStyle.Fill;
 								panel10.BringToFront();
-							}
+                            }
 							else
 							{
 								String var = "Tipo de usuario mal ingresado";
@@ -201,7 +209,7 @@ namespace interfaceGrupo15
 							{
 								panel4.Dock = System.Windows.Forms.DockStyle.Fill;
 								panel4.BringToFront();
-							}
+                            }
 							else
 							{
 								String var = "Tipo de usuario mal ingresado";
@@ -214,7 +222,7 @@ namespace interfaceGrupo15
 							{
 								panel4.Dock = System.Windows.Forms.DockStyle.Fill;
 								panel4.BringToFront();
-							}
+                            }
 							else
 							{
 								String var = "Tipo de usuario mal ingresado";
@@ -360,7 +368,7 @@ namespace interfaceGrupo15
 			else
 			{
 				Usuario usuarionotificado = metodos.EntregarUsuario(apodonotificado);
-				if (usuarionotificado.AgregarNotificacion(usuarionotificado, notificacion) == "bien")
+				if (usuarionotificado.AgregarNotificacion(usuarioManda, notificacion) == "bien")
 				{
 					label29.Text = "Notificacion enviada";
 				}
@@ -432,7 +440,12 @@ namespace interfaceGrupo15
 			if (metodos.EliminarPublicacionUsuario(usuarioingresado, id_public))
 			{
 				label36.Text = "publicacion eliminada con exito";
-			}
+                comboBox10.Items.Clear();
+                foreach (Publicacion p in usuarioingresado.GetListaPublicaciones())
+                {
+                    this.comboBox10.Items.Add(p.GetEncabezado());
+                }
+            }
 			else
 			{
 				label36.Text = "ID mal ingresado, no se ha podido eliminar la publicacion";
@@ -463,11 +476,7 @@ namespace interfaceGrupo15
             panel1.BringToFront();
         }
 
-        private void button27_Click(object sender, EventArgs e) //eliminar publicacion administrador
-        {
-            panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel11.BringToFront();
-        }
+        
 
         private void button26_Click(object sender, EventArgs e) // ver publicaciones administrador
         {
@@ -475,11 +484,7 @@ namespace interfaceGrupo15
 			panel17.BringToFront();
 		}
 
-        private void button28_Click(object sender, EventArgs e) //eliminr usuario administrador
-        {
-            panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel12.BringToFront();
-        }
+        
 
         private void button29_Click(object sender, EventArgs e) // ver usuarios administrador 
         {
@@ -493,7 +498,15 @@ namespace interfaceGrupo15
 				listBox3.Items.Add("Telefono: " + a.Gettelefono());
 				listBox3.Items.Add("Calificacion: " + a.CalcularPuntos());
 				listBox3.Items.Add("------------------------------------------");
-			}
+                if (comboBox13.Items.Contains(a.Getapodo()))
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox13.Items.Add(a.Getapodo());
+                }
+            }
 			foreach (Personal p in metodos.GetListaPersonal())
 			{
 				listBox3.Items.Add("Usuario: " + p.Getapodo());
@@ -502,74 +515,51 @@ namespace interfaceGrupo15
 				listBox3.Items.Add("Telefono: " + p.Gettelefono());
 				listBox3.Items.Add("Calificacion: " + p.CalcularPuntos());
 				listBox3.Items.Add("------------------------------------------");
-			}
-		}
-
-        private void button31_Click(object sender, EventArgs e) //eliminado public
-        {
-            String id_public = textBox15.Text;
-            if (metodos.EliminarCualquierPublicacion(id_public))
-            {
-                label40.Text = "publicacion eliminada con exito";
+                if (comboBox13.Items.Contains(p.Getapodo()))
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox13.Items.Add(p.Getapodo());
+                }
             }
-            else
-            {
-                label40.Text = "ID de publicacion mal ingresado o no existe";
-            }
-        }
-
-        private void button32_Click(object sender, EventArgs e)
-        {
-            textBox15.Clear();
-            label40.Text = "";
-            panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel10.BringToFront();
+           
 
         }
 
-        private void button33_Click(object sender, EventArgs e) //elimino usuario
-        {
-            String apodoborrar = textBox16.Text;
-            if (metodos.eliminarUsuario(apodoborrar))
-            {
-                label43.Text = "Usuario eliminado con exito";
-            }
-            else
-            {
-                label43.Text = "se ha ingresado mal el apodo del usuario o este no existe";
-            }
-        }
+        
 
-        private void button34_Click(object sender, EventArgs e)
-        {
-            textBox16.Clear();
-            label43.Text = "";
-            panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel10.BringToFront();
-
-        }
+        
 
 
 		private void button35_Click_1(object sender, EventArgs e) //ver notif
 		{
+            
 			String apodousuario = textBox7.Text;
 			String apodo = comboBox6.Text;
 			Usuario usuario = metodos.EntregarUsuario(apodousuario);
 			Usuario usuario1 = metodos.EntregarUsuario(apodo);
+            if (usuario1 != null)
+            {
+                listBox2.Items.Add("Mail del remitente: " + usuario1.Getmail());
+                foreach (List<String> m in usuario.GetListaNotificaciones())
+                {
+                    if (m[1] == apodo)
+                    {
+                        listBox2.Items.Add("Mensaje: " + m[0]);
+                    }
+                    else
+                    {
+                        continue;
+                    }
 
-			listBox2.Items.Add("Mail del remitente: " + usuario1.Getmail());
-			foreach (List<String> m in usuario.GetListaNotificaciones())
-			{
-				if (m[1] == apodo)
-				{
-					listBox2.Items.Add("Mensaje: " + m[0]);
-				}
-				else
-				{
-					continue;
-				}
-
-			}
+                }
+            }
+			else
+            {
+                label38.Text = "No selecciono una notificacion o no tiene";
+            }
 		}
 
 		private void button11_Click_1(object sender, EventArgs e) //ver mis notificaciones
@@ -633,6 +623,7 @@ namespace interfaceGrupo15
 
 		private void button39_Click(object sender, EventArgs e) //mostrar publicaciones
 		{
+            listbox1.Items.Clear();
 			if (comboBox8.Text == "encontrado")
 			{
 				foreach (Encontrado enc in metodos.Getlistaencontrado())
@@ -666,13 +657,16 @@ namespace interfaceGrupo15
 		private void button41_Click(object sender, EventArgs e)
 		{
 			listBox3.Items.Clear();
+            comboBox13.Items.Clear();
 			panel10.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel10.BringToFront();
 		}
 
-		private void button42_Click(object sender, EventArgs e)
+		private void button42_Click(object sender, EventArgs e) // boton ver publicaciones administrador 
 		{
-			if (comboBox11.Text == "encontrado")
+            comboBox14.Items.Clear();
+            listBox4.Items.Clear();
+            if (comboBox11.Text == "encontrado")
 			{
 				foreach (Encontrado enc in metodos.Getlistaencontrado())
 				{
@@ -683,11 +677,20 @@ namespace interfaceGrupo15
 						listBox4.Items.Add("Descripcion: " + enc.Getdescripcion());
 						listBox4.Items.Add("Usuario: " + enc.GetApodo());
 						listBox4.Items.Add("------------------------------------------------");
-					}
+                        if (comboBox14.Items.Contains(enc.GetId()))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            comboBox14.Items.Add(enc.GetId());
+                        }
+                    }
 				}
 			}
 			else if (comboBox11.Text == "perdido")
 			{
+                
 				foreach (Perdido p in metodos.Getlistaperdido())
 				{
 					if (p.GetCategoria() == comboBox12.Text)
@@ -697,16 +700,161 @@ namespace interfaceGrupo15
 						listBox4.Items.Add("Descripcion: " + p.Getdescripcion());
 						listBox4.Items.Add("Usuario: " + p.GetApodo());
 						listBox4.Items.Add("------------------------------------------------");
-					}
+                        if (comboBox14.Items.Contains(p.GetId()))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            comboBox14.Items.Add(p.GetId());
+                        }
+                    }
 				}
 			}
+
 		}
 
 		private void button43_Click(object sender, EventArgs e)
 		{
 			listBox4.Items.Clear();
+            comboBox14.Items.Clear();
 			panel10.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel10.BringToFront();
 		}
-	}
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button44_Click(object sender, EventArgs e) // eliminar usuarios administrador 
+        {
+            String apodoborrar = comboBox13.Text;
+            if (metodos.eliminarUsuario(apodoborrar))
+            {
+                label57.Text = "Usuario eliminado con exito";
+                comboBox13.Items.Clear();
+                listBox3.Items.Clear();
+                foreach (Alumno a in metodos.GetListaAlumnos())
+                {
+                    listBox3.Items.Add("Usuario: " + a.Getapodo());
+                    listBox3.Items.Add("Nombre: " + a.Getnombre());
+                    listBox3.Items.Add("Mail: " + a.Getmail());
+                    listBox3.Items.Add("Telefono: " + a.Gettelefono());
+                    listBox3.Items.Add("Calificacion: " + a.CalcularPuntos());
+                    listBox3.Items.Add("------------------------------------------");
+                    if (comboBox13.Items.Contains(a.Getapodo()))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        comboBox13.Items.Add(a.Getapodo());
+                    }
+                }
+                foreach (Personal p in metodos.GetListaPersonal())
+                {
+                    listBox3.Items.Add("Usuario: " + p.Getapodo());
+                    listBox3.Items.Add("Nombre: " + p.Getnombre());
+                    listBox3.Items.Add("Mail: " + p.Getmail());
+                    listBox3.Items.Add("Telefono: " + p.Gettelefono());
+                    listBox3.Items.Add("Calificacion: " + p.CalcularPuntos());
+                    listBox3.Items.Add("------------------------------------------");
+                    if (comboBox13.Items.Contains(p.Getapodo()))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        comboBox13.Items.Add(p.Getapodo());
+                    }
+                }
+            }
+            else
+            {
+                label57.Text = "Apodo mal selecciondo";
+            }
+            
+        }
+
+        private void button28_Click(object sender, EventArgs e) //eliminar publicaciones administrador 
+        {
+            String id_public = comboBox14.Text;
+            if (metodos.EliminarCualquierPublicacion(id_public))
+            {
+                label43.Text = "publicacion eliminada con exito";
+                comboBox14.Items.Clear();
+                listBox4.Items.Clear();
+                if (comboBox11.Text == "encontrado")
+                {
+                    foreach (Encontrado enc in metodos.Getlistaencontrado())
+                    {
+                        if (enc.GetCategoria() == comboBox12.Text)
+                        {
+                            listBox4.Items.Add("ID: " + enc.GetId());
+                            listBox4.Items.Add("Encabezado: " + enc.GetEncabezado());
+                            listBox4.Items.Add("Descripcion: " + enc.Getdescripcion());
+                            listBox4.Items.Add("Usuario: " + enc.GetApodo());
+                            listBox4.Items.Add("------------------------------------------------");
+                            if (comboBox14.Items.Contains(enc.GetId()))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                comboBox14.Items.Add(enc.GetId());
+                            }
+                        }
+                    }
+                }
+                else if (comboBox11.Text == "perdido")
+                {
+
+                    foreach (Perdido p in metodos.Getlistaperdido())
+                    {
+                        if (p.GetCategoria() == comboBox12.Text)
+                        {
+                            listBox4.Items.Add("ID: " + p.GetId());
+                            listBox4.Items.Add("Encabezado: " + p.GetEncabezado());
+                            listBox4.Items.Add("Descripcion: " + p.Getdescripcion());
+                            listBox4.Items.Add("Usuario: " + p.GetApodo());
+                            listBox4.Items.Add("------------------------------------------------");
+                            if (comboBox14.Items.Contains(p.GetId()))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                comboBox14.Items.Add(p.GetId());
+                            }
+                        }
+                    }
+                }
+
+            }
+            else
+            {
+                label43.Text = "ID de publicacion mal ingresado";
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (File.Exists("../../Serialize.txt"))
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+                Stream stream = new FileStream("../../Serialize.txt", FileMode.Open, FileAccess.Write);
+                bin.Serialize(stream, metodos);
+                stream.Close();
+            }
+            else
+            {
+                BinaryFormatter bin = new BinaryFormatter();
+                Stream stream = new FileStream("../../Serialize.txt", FileMode.Create, FileAccess.Write);
+                bin.Serialize(stream, metodos);
+                stream.Close();
+            }
+            base.OnFormClosing(e);
+        }
+    }
 }
