@@ -123,6 +123,7 @@
             this.button26 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.label38 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
@@ -168,7 +169,6 @@
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -192,17 +192,18 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(45, 151);
+            this.panel1.Location = new System.Drawing.Point(24, 136);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(24, 31);
+            this.panel1.Size = new System.Drawing.Size(58, 35);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(269, 53);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label1.Location = new System.Drawing.Point(210, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 13);
+            this.label1.Size = new System.Drawing.Size(260, 24);
             this.label1.TabIndex = 3;
             this.label1.Text = "Bienvenido a Lost And Found";
             // 
@@ -255,9 +256,9 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(40, 12);
+            this.panel2.Location = new System.Drawing.Point(32, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(38, 27);
+            this.panel2.Size = new System.Drawing.Size(49, 27);
             this.panel2.TabIndex = 4;
             // 
             // label9
@@ -416,9 +417,9 @@
             this.panel5.Controls.Add(this.label18);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.label16);
-            this.panel5.Location = new System.Drawing.Point(218, 19);
+            this.panel5.Location = new System.Drawing.Point(26, 46);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(565, 389);
+            this.panel5.Size = new System.Drawing.Size(49, 36);
             this.panel5.TabIndex = 6;
             // 
             // button11
@@ -529,9 +530,9 @@
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(35, 94);
+            this.panel3.Location = new System.Drawing.Point(31, 101);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(54, 51);
+            this.panel3.Size = new System.Drawing.Size(47, 24);
             this.panel3.TabIndex = 4;
             // 
             // label14
@@ -577,9 +578,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(288, 37);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label13.Location = new System.Drawing.Point(244, 30);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 13);
+            this.label13.Size = new System.Drawing.Size(157, 24);
             this.label13.TabIndex = 6;
             this.label13.Text = "Ingrese sus datos";
             // 
@@ -631,9 +633,9 @@
             this.panel4.Controls.Add(this.button9);
             this.panel4.Controls.Add(this.button8);
             this.panel4.Controls.Add(this.label15);
-            this.panel4.Location = new System.Drawing.Point(35, 194);
+            this.panel4.Location = new System.Drawing.Point(35, 188);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(38, 35);
+            this.panel4.Size = new System.Drawing.Size(32, 23);
             this.panel4.TabIndex = 11;
             // 
             // button12
@@ -679,9 +681,10 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(322, 34);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label15.Location = new System.Drawing.Point(297, 21);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 13);
+            this.label15.Size = new System.Drawing.Size(136, 24);
             this.label15.TabIndex = 0;
             this.label15.Text = "Menu Principal";
             // 
@@ -699,9 +702,9 @@
             this.panel6.Controls.Add(this.label22);
             this.panel6.Controls.Add(this.label21);
             this.panel6.Controls.Add(this.label20);
-            this.panel6.Location = new System.Drawing.Point(32, 235);
+            this.panel6.Location = new System.Drawing.Point(25, 234);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(50, 36);
+            this.panel6.Size = new System.Drawing.Size(50, 28);
             this.panel6.TabIndex = 12;
             // 
             // label25
@@ -811,9 +814,10 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(228, 35);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label20.Location = new System.Drawing.Point(226, 24);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(90, 13);
+            this.label20.Size = new System.Drawing.Size(159, 24);
             this.label20.TabIndex = 0;
             this.label20.Text = "Crear Publicacion";
             // 
@@ -827,9 +831,9 @@
             this.panel7.Controls.Add(this.label28);
             this.panel7.Controls.Add(this.label27);
             this.panel7.Controls.Add(this.label26);
-            this.panel7.Location = new System.Drawing.Point(27, 292);
+            this.panel7.Location = new System.Drawing.Point(20, 284);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(48, 23);
+            this.panel7.Size = new System.Drawing.Size(63, 30);
             this.panel7.TabIndex = 13;
             // 
             // label29
@@ -879,9 +883,10 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(221, 37);
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label28.Location = new System.Drawing.Point(163, 25);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(159, 13);
+            this.label28.Size = new System.Drawing.Size(276, 24);
             this.label28.TabIndex = 2;
             this.label28.Text = "Enviar Notificacion a un Usuario";
             // 
@@ -913,9 +918,9 @@
             this.panel8.Controls.Add(this.label32);
             this.panel8.Controls.Add(this.label31);
             this.panel8.Controls.Add(this.label30);
-            this.panel8.Location = new System.Drawing.Point(35, 334);
+            this.panel8.Location = new System.Drawing.Point(16, 334);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(48, 37);
+            this.panel8.Size = new System.Drawing.Size(65, 48);
             this.panel8.TabIndex = 14;
             // 
             // label33
@@ -988,9 +993,10 @@
             // label30
             // 
             this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.label30.Location = new System.Drawing.Point(221, 40);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(105, 13);
+            this.label30.Size = new System.Drawing.Size(184, 24);
             this.label30.TabIndex = 0;
             this.label30.Text = "Calificar a un usuario";
             // 
@@ -1002,9 +1008,9 @@
             this.panel9.Controls.Add(this.button24);
             this.panel9.Controls.Add(this.label35);
             this.panel9.Controls.Add(this.label34);
-            this.panel9.Location = new System.Drawing.Point(31, 401);
+            this.panel9.Location = new System.Drawing.Point(31, 398);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(38, 28);
+            this.panel9.Size = new System.Drawing.Size(55, 43);
             this.panel9.TabIndex = 15;
             // 
             // comboBox10
@@ -1055,9 +1061,10 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(268, 44);
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label34.Location = new System.Drawing.Point(247, 28);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(101, 13);
+            this.label34.Size = new System.Drawing.Size(181, 24);
             this.label34.TabIndex = 0;
             this.label34.Text = "Eliminar Publicacion";
             // 
@@ -1067,13 +1074,14 @@
             this.panel10.Controls.Add(this.button29);
             this.panel10.Controls.Add(this.button26);
             this.panel10.Controls.Add(this.label37);
-            this.panel10.Location = new System.Drawing.Point(122, 301);
+            this.panel10.Location = new System.Drawing.Point(109, 288);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(53, 37);
+            this.panel10.Size = new System.Drawing.Size(78, 30);
             this.panel10.TabIndex = 16;
             // 
             // button30
             // 
+            this.button30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.button30.Location = new System.Drawing.Point(139, 228);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(347, 48);
@@ -1084,6 +1092,7 @@
             // 
             // button29
             // 
+            this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.button29.Location = new System.Drawing.Point(138, 152);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(347, 49);
@@ -1094,6 +1103,7 @@
             // 
             // button26
             // 
+            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.button26.Location = new System.Drawing.Point(138, 66);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(347, 54);
@@ -1105,9 +1115,10 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(253, 37);
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label37.Location = new System.Drawing.Point(227, 21);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(99, 13);
+            this.label37.Size = new System.Drawing.Size(177, 24);
             this.label37.TabIndex = 0;
             this.label37.Text = "Menu administrador";
             // 
@@ -1120,11 +1131,19 @@
             this.panel13.Controls.Add(this.comboBox6);
             this.panel13.Controls.Add(this.label45);
             this.panel13.Controls.Add(this.label44);
-            this.panel13.Location = new System.Drawing.Point(122, 70);
+            this.panel13.Location = new System.Drawing.Point(118, 62);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(44, 41);
+            this.panel13.Size = new System.Drawing.Size(45, 44);
             this.panel13.TabIndex = 19;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(159, 328);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(0, 13);
+            this.label38.TabIndex = 7;
             // 
             // listBox2
             // 
@@ -1175,9 +1194,10 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(278, 30);
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label44.Location = new System.Drawing.Point(221, 21);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(74, 13);
+            this.label44.Size = new System.Drawing.Size(127, 24);
             this.label44.TabIndex = 0;
             this.label44.Text = "Notificaciones";
             // 
@@ -1189,9 +1209,9 @@
             this.panel14.Controls.Add(this.comboBox7);
             this.panel14.Controls.Add(this.label47);
             this.panel14.Controls.Add(this.label46);
-            this.panel14.Location = new System.Drawing.Point(106, 120);
+            this.panel14.Location = new System.Drawing.Point(118, 126);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(69, 42);
+            this.panel14.Size = new System.Drawing.Size(54, 29);
             this.panel14.TabIndex = 20;
             // 
             // button38
@@ -1243,9 +1263,10 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(245, 26);
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label46.Location = new System.Drawing.Point(206, 23);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(92, 13);
+            this.label46.Size = new System.Drawing.Size(162, 24);
             this.label46.TabIndex = 0;
             this.label46.Text = "Mis Publicaciones";
             // 
@@ -1259,13 +1280,14 @@
             this.panel15.Controls.Add(this.comboBox8);
             this.panel15.Controls.Add(this.label49);
             this.panel15.Controls.Add(this.label48);
-            this.panel15.Location = new System.Drawing.Point(116, 244);
+            this.panel15.Location = new System.Drawing.Point(245, 27);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(40, 26);
+            this.panel15.Size = new System.Drawing.Size(550, 392);
             this.panel15.TabIndex = 21;
             // 
             // button40
             // 
+            this.button40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button40.Location = new System.Drawing.Point(63, 340);
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(75, 23);
@@ -1276,6 +1298,7 @@
             // 
             // button39
             // 
+            this.button39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.button39.Location = new System.Drawing.Point(415, 340);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(75, 23);
@@ -1339,9 +1362,10 @@
             // label48
             // 
             this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.label48.Location = new System.Drawing.Point(223, 14);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(73, 13);
+            this.label48.Size = new System.Drawing.Size(128, 24);
             this.label48.TabIndex = 0;
             this.label48.Text = "Publicaciones";
             // 
@@ -1355,9 +1379,9 @@
             this.panel16.Controls.Add(this.button41);
             this.panel16.Controls.Add(this.listBox3);
             this.panel16.Controls.Add(this.label51);
-            this.panel16.Location = new System.Drawing.Point(108, 187);
+            this.panel16.Location = new System.Drawing.Point(118, 177);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(48, 42);
+            this.panel16.Size = new System.Drawing.Size(41, 27);
             this.panel16.TabIndex = 22;
             // 
             // label57
@@ -1398,9 +1422,10 @@
             // label55
             // 
             this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.label55.Location = new System.Drawing.Point(29, 285);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(82, 13);
+            this.label55.Size = new System.Drawing.Size(147, 24);
             this.label55.TabIndex = 3;
             this.label55.Text = "Eliminar Usuario";
             // 
@@ -1417,7 +1442,7 @@
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(31, 34);
+            this.listBox3.Location = new System.Drawing.Point(31, 43);
             this.listBox3.Name = "listBox3";
             this.listBox3.ScrollAlwaysVisible = true;
             this.listBox3.Size = new System.Drawing.Size(591, 225);
@@ -1426,10 +1451,11 @@
             // label51
             // 
             this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
             this.label51.ForeColor = System.Drawing.Color.Black;
             this.label51.Location = new System.Drawing.Point(28, 10);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(113, 13);
+            this.label51.Size = new System.Drawing.Size(201, 24);
             this.label51.TabIndex = 0;
             this.label51.Text = "Usuarios del Programa";
             // 
@@ -1448,9 +1474,9 @@
             this.panel17.Controls.Add(this.label54);
             this.panel17.Controls.Add(this.label53);
             this.panel17.Controls.Add(this.label52);
-            this.panel17.Location = new System.Drawing.Point(108, 19);
+            this.panel17.Location = new System.Drawing.Point(109, 19);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(43, 36);
+            this.panel17.Size = new System.Drawing.Size(54, 36);
             this.panel17.TabIndex = 23;
             // 
             // label43
@@ -1491,9 +1517,10 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(35, 311);
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label41.Location = new System.Drawing.Point(34, 304);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(100, 13);
+            this.label41.Size = new System.Drawing.Size(180, 24);
             this.label41.TabIndex = 8;
             this.label41.Text = "Eliminar publicacion";
             // 
@@ -1572,19 +1599,12 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(55, 14);
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
+            this.label52.Location = new System.Drawing.Point(35, 16);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(73, 13);
+            this.label52.Size = new System.Drawing.Size(128, 24);
             this.label52.TabIndex = 0;
             this.label52.Text = "Publicaciones";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(159, 328);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(0, 13);
-            this.label38.TabIndex = 7;
             // 
             // Form1
             // 

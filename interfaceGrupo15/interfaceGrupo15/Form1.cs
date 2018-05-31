@@ -856,5 +856,7 @@ namespace interfaceGrupo15
             }
             base.OnFormClosing(e);
         }
+
+        
     }
 }
