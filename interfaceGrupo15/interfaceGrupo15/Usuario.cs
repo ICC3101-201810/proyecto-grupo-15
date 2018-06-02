@@ -81,16 +81,26 @@ namespace interfaceGrupo15
 		}
 		
 
-		public bool EliminarNotificaciones()
+		public bool EliminarNotificaciones(Usuario usuarionotifica)
 		{
 			if (notificaciones.Count() == 0)
 			{
-				return false; //No tiene notificaciones
+                return false;//No tiene notificaciones
 			}
 			else
 			{
-				notificaciones.Clear();
-				return true;
+                int i = 0;
+                foreach (List<string> p in notificaciones)
+                {
+                    if (p[1] == usuarionotifica.Getapodo())
+                    {
+                        break;
+                    }
+                    
+                    i++;
+                }
+                notificaciones.RemoveAt(i);
+                return true;
 			}
 
 		}

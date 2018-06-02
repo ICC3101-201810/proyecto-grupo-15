@@ -297,13 +297,75 @@ namespace interfaceGrupo15
 
 		private void button13_Click(object sender, EventArgs e) //enviar notificacion a un usuario en perfil
 		{
-			panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            string apodoUsuarioSistema = textBox7.Text;
+            foreach (Alumno a in metodos.GetListaAlumnos())
+            {
+                if (comboBox10.Items.Contains(a.Getapodo()))
+                {
+                    continue;
+                }
+                else if (a.Getapodo() == apodoUsuarioSistema)
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox10.Items.Add(a.Getapodo());
+                }
+            }
+            foreach (Personal p in metodos.GetListaPersonal())
+            {
+                if (comboBox10.Items.Contains(p.Getapodo()))
+                {
+                    continue;
+                }
+                else if (p.Getapodo() == apodoUsuarioSistema)
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox10.Items.Add(p.Getapodo());
+                }
+            }
+            panel7.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel7.BringToFront();
 		}
 
 		private void button14_Click(object sender, EventArgs e) //calificar a otros usuario en perfil
 		{
-			panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            String apodoUsuarioSistema = textBox7.Text;
+            foreach (Alumno a in metodos.GetListaAlumnos())
+            {
+                if (comboBox15.Items.Contains(a.Getapodo()))
+                {
+                    continue;
+                }
+                else if (a.Getapodo() == apodoUsuarioSistema)
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox15.Items.Add(a.Getapodo());
+                }
+            }
+            foreach (Personal p in metodos.GetListaPersonal())
+            {
+                if (comboBox15.Items.Contains(p.Getapodo()))
+                {
+                    continue;
+                }
+                else if (p.Getapodo() == apodoUsuarioSistema)
+                {
+                    continue;
+                }
+                else
+                {
+                    comboBox15.Items.Add(p.Getapodo());
+                }
+            }
+            panel8.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel8.BringToFront();
 		}
 
@@ -320,17 +382,6 @@ namespace interfaceGrupo15
 			panel14.BringToFront();
 		}
 
-		private void button16_Click(object sender, EventArgs e) //eliminar una publicacion en perfil
-		{
-			String apodo = textBox7.Text;
-			Usuario usuario = metodos.EntregarUsuario(apodo);
-			foreach (Publicacion p in usuario.GetListaPublicaciones())
-			{
-				this.comboBox10.Items.Add(p.GetEncabezado());
-			}
-			panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel9.BringToFront();
-		}
 
 		private void button19_Click(object sender, EventArgs e) // guardar publicacion
 		{
@@ -359,7 +410,7 @@ namespace interfaceGrupo15
 		{
 			String apodoquiennotifica= textBox7.Text;
 			Usuario usuarioManda = metodos.EntregarUsuario(apodoquiennotifica);
-			String apodonotificado = textBox11.Text;
+			String apodonotificado = comboBox10.Text;
 			String notificacion = textBox12.Text;
 			if (metodos.RevisarApodo(apodonotificado))
 			{
@@ -381,7 +432,7 @@ namespace interfaceGrupo15
 
 		private void button20_Click(object sender, EventArgs e)
 		{
-            textBox11.Clear();
+            comboBox10.Items.Clear();
             textBox12.Clear();
             label29.Text = "";
             panel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -390,7 +441,7 @@ namespace interfaceGrupo15
 
 		private void button22_Click(object sender, EventArgs e) //asignar calificacion
 		{
-			String apodonotificado = textBox13.Text;
+			String apodonotificado = comboBox15.Text;
 			String calificacion = comboBox5.Text;
 			if (metodos.RevisarApodo(apodonotificado) == false)
 			{
@@ -413,54 +464,15 @@ namespace interfaceGrupo15
 
 		private void button23_Click(object sender, EventArgs e)
 		{
-            textBox13.Clear();
+            comboBox15.Items.Clear();
             label33.Text = "";
             panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
 
-		private void button24_Click(object sender, EventArgs e) //eliminando publicacion
-		{
-			String id_public = null;
-			String encabezado = comboBox10.Text;
-			String apodo = textBox7.Text;
-			Usuario usuarioingresado = metodos.EntregarUsuario(apodo);
-			foreach (Publicacion p in usuarioingresado.GetListaPublicaciones())
-			{
-				if (p.GetEncabezado() == encabezado)
-				{
-					id_public = p.GetId().ToString();
-					break;
-				}
-				else
-				{
-					id_public = null;
-				}
-			}
-			if (metodos.EliminarPublicacionUsuario(usuarioingresado, id_public))
-			{
-				label36.Text = "publicacion eliminada con exito";
-                comboBox10.Items.Clear();
-                foreach (Publicacion p in usuarioingresado.GetListaPublicaciones())
-                {
-                    this.comboBox10.Items.Add(p.GetEncabezado());
-                }
-            }
-			else
-			{
-				label36.Text = "ID mal ingresado, no se ha podido eliminar la publicacion";
-			}
+		
 
-
-		}
-
-		private void button25_Click(object sender, EventArgs e)
-		{
-            label36.Text = "";
-			comboBox10.Items.Clear();
-            panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			panel5.BringToFront();
-		}
+		
 
         private void button30_Click(object sender, EventArgs e)
         {
@@ -535,7 +547,8 @@ namespace interfaceGrupo15
 
 		private void button35_Click_1(object sender, EventArgs e) //ver notif
 		{
-            
+            listBox2.Items.Clear();
+            label38.Text = "";
 			String apodousuario = textBox7.Text;
 			String apodo = comboBox6.Text;
 			Usuario usuario = metodos.EntregarUsuario(apodousuario);
@@ -555,6 +568,7 @@ namespace interfaceGrupo15
                     }
 
                 }
+                usuario.EliminarNotificaciones(usuario1);
             }
 			else
             {
@@ -586,6 +600,7 @@ namespace interfaceGrupo15
 		{
 			listBox2.Items.Clear();
 			comboBox6.Items.Clear();
+            label38.Text = "";
 			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel5.BringToFront();
 		}
@@ -608,6 +623,7 @@ namespace interfaceGrupo15
 		private void button38_Click(object sender, EventArgs e)
 		{
 			textBox18.Text = "";
+            label40.Text = "";
 			comboBox7.Items.Clear();
 			listBox2.Items.Clear();
 			panel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -634,7 +650,7 @@ namespace interfaceGrupo15
 						listbox1.Items.Add("Encabezado: " + enc.GetEncabezado());
 						listbox1.Items.Add("Descripcion: " + enc.Getdescripcion());
 						listbox1.Items.Add("Usuario: " + enc.GetApodo());
-						listbox1.Items.Add("------------------------------------------------");
+						listbox1.Items.Add("---------------------------------------------------------------------------------------------------------------------------------------------");
 					}
 				}
 			}
@@ -648,7 +664,7 @@ namespace interfaceGrupo15
 						listbox1.Items.Add("Encabezado: " + p.GetEncabezado());
 						listbox1.Items.Add("Descripcion: " + p.Getdescripcion());
 						listbox1.Items.Add("Usuario: " + p.GetApodo());
-						listbox1.Items.Add("------------------------------------------------");
+						listbox1.Items.Add("---------------------------------------------------------------------------------------------------------------------------------------------");
 					}
 				}
 			}
@@ -657,6 +673,7 @@ namespace interfaceGrupo15
 		private void button41_Click(object sender, EventArgs e)
 		{
 			listBox3.Items.Clear();
+            label57.Text = "";
             comboBox13.Items.Clear();
 			panel10.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel10.BringToFront();
@@ -676,7 +693,7 @@ namespace interfaceGrupo15
 						listBox4.Items.Add("Encabezado: " + enc.GetEncabezado());
 						listBox4.Items.Add("Descripcion: " + enc.Getdescripcion());
 						listBox4.Items.Add("Usuario: " + enc.GetApodo());
-						listBox4.Items.Add("------------------------------------------------");
+						listBox4.Items.Add("---------------------------------------------------------------------------------------------------------------------------------------------");
                         if (comboBox14.Items.Contains(enc.GetId()))
                         {
                             continue;
@@ -699,7 +716,7 @@ namespace interfaceGrupo15
 						listBox4.Items.Add("Encabezado: " + p.GetEncabezado());
 						listBox4.Items.Add("Descripcion: " + p.Getdescripcion());
 						listBox4.Items.Add("Usuario: " + p.GetApodo());
-						listBox4.Items.Add("------------------------------------------------");
+						listBox4.Items.Add("---------------------------------------------------------------------------------------------------------------------------------------------");
                         if (comboBox14.Items.Contains(p.GetId()))
                         {
                             continue;
@@ -717,6 +734,7 @@ namespace interfaceGrupo15
 		private void button43_Click(object sender, EventArgs e)
 		{
 			listBox4.Items.Clear();
+            label43.Text = "";
             comboBox14.Items.Clear();
 			panel10.Dock = System.Windows.Forms.DockStyle.Fill;
 			panel10.BringToFront();
@@ -795,7 +813,7 @@ namespace interfaceGrupo15
                             listBox4.Items.Add("Encabezado: " + enc.GetEncabezado());
                             listBox4.Items.Add("Descripcion: " + enc.Getdescripcion());
                             listBox4.Items.Add("Usuario: " + enc.GetApodo());
-                            listBox4.Items.Add("------------------------------------------------");
+                            listBox4.Items.Add("-----------------------------------------------------------------------------------------------------------------------------------------");
                             if (comboBox14.Items.Contains(enc.GetId()))
                             {
                                 continue;
@@ -818,7 +836,7 @@ namespace interfaceGrupo15
                             listBox4.Items.Add("Encabezado: " + p.GetEncabezado());
                             listBox4.Items.Add("Descripcion: " + p.Getdescripcion());
                             listBox4.Items.Add("Usuario: " + p.GetApodo());
-                            listBox4.Items.Add("------------------------------------------------");
+                            listBox4.Items.Add("------------------------------------------------------------------------------------------------------------------------------------------");
                             if (comboBox14.Items.Contains(p.GetId()))
                             {
                                 continue;
@@ -857,6 +875,43 @@ namespace interfaceGrupo15
             base.OnFormClosing(e);
         }
 
-        
+        private void button27_Click(object sender, EventArgs e) //eliminar publicacion en perfil de usuario
+        {
+            String id_public = null;
+            String encabezado = comboBox7.Text;
+            String apodo = textBox7.Text;
+            Usuario usuarioingresado = metodos.EntregarUsuario(apodo);
+            foreach (Publicacion p in usuarioingresado.GetListaPublicaciones())
+            {
+                if (p.GetEncabezado() == encabezado)
+                {
+                    id_public = p.GetId().ToString();
+                    break;
+                }
+                else
+                {
+                    id_public = null;
+                }
+            }
+            if (metodos.EliminarPublicacionUsuario(usuarioingresado, id_public))
+            {
+                label40.Text = "publicacion eliminada con exito";
+                comboBox7.Items.Clear();
+                textBox18.Clear();
+                foreach (Publicacion p in usuarioingresado.GetListaPublicaciones())
+                {
+                    this.comboBox7.Items.Add(p.GetEncabezado());
+                }
+            }
+            else
+            {
+                label40.Text = "Publicacion mal seleccionadao, intentelo nuevamente";
+            }
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
     }
 }
